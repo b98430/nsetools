@@ -63,6 +63,9 @@ class Nse(AbstractBaseExchange):
         self.top_fno_gainer_url\
             = 'https://www1.nseindia.com/live_market/dynaContent/live_analysis/gainers/fnoGainers1.json'
         self.top_fno_loser_url = 'https://www1.nseindia.com/live_market/dynaContent/live_analysis/losers/fnoLosers1.json'
+        
+         self.oi_spurts_url = 'https://www1.nseindia.com/live_market/dynaContent/live_analysis/oi_spurts/by_underlying.json'
+        
         self.advances_declines_url = 'http://www1.nseindia.com/common/json/indicesAdvanceDeclines.json'
         self.index_url="http://www1.nseindia.com/homepage/Indices1.json"
         self.bhavcopy_base_url = "https://www1.nseindia.com/content/historical/EQUITIES/%s/%s/cm%s%s%sbhav.csv.zip"
@@ -76,6 +79,7 @@ class Nse(AbstractBaseExchange):
         self.preopen_niftybank_url =\
             "https://www1.nseindia.com/live_market/dynaContent/live_analysis/pre_open/niftybank.json"
         self.fno_lot_size_url = "https://www1.nseindia.com/content/fo/fo_mktlots.csv"
+       
 
     def get_fno_lot_sizes(self, cached=True, as_json=False):
         """
@@ -197,6 +201,11 @@ class Nse(AbstractBaseExchange):
         # clean the output and make appropriate type conversions
         res_list = [self.clean_server_response(item) for item in res_dict['data']]
         return self.render_response(res_list, as_json)
+    
+    def get_oi_spurts_url(self,as_json =False):
+        print("111111111111111111111")
+    
+    
 
     def get_top_losers(self, as_json=False):
         """
